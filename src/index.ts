@@ -10,6 +10,10 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use("*", prettyJSON());
 app.use("*", logger());
 
+app.get("/", async (c: Context) => {
+  return c.json({ message: "Welcome to the cat.network API" }, 200);
+});
+
 app.get("/cosmo", async (c: Context) => {
 
   const prefix = "cosmo/";
